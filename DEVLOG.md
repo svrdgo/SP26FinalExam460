@@ -1,7 +1,7 @@
 # Development Log – The Torchbearer
 
-**Student Name:** ___________________________
-**Student ID:** ___________________________
+**Student Name:** Santiago Verdugo Carrillo
+**Student ID:** 828460068
 
 > Instructions: Write at least four dated entries. Required entry types are marked below.
 > Two to five sentences per entry is sufficient. Write entries as you go, not all in one
@@ -10,12 +10,12 @@
 
 ---
 
-## Entry 1 – [Date]: Initial Plan
+## Entry 1 – [05/11/2026]: Initial Plan
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-_Your entry here._
+_Reviewed assignment requirements. The plan is to work on README document first, in order to have a strategy in place before writing any code. I believe the implementation of the code may be more difficult than the analysis, since the problem implies the solution for it may be somewhat complex. Once the solution is implemented, I plan to start testing by using simple inputs, and then moving on to edge cases to ensure those are properly handled. ._
 
 ---
 
@@ -49,12 +49,12 @@ _Your entry here._
 
 | Part | Estimated Hours |
 |---|---|
-| Part 1: Problem Analysis | |
+| Part 1: Problem Analysis |  |
 | Part 2: Precomputation Design | |
-| Part 3: Algorithm Correctness | |
-| Part 4: Search Design | |
+| Part 3: Algorithm Correctness |  |
+| Part 4: Search Design |  |
 | Part 5: State and Search Space | |
-| Part 6: Pruning | |
+| Part 6: Pruning |  |
 | Part 7: Implementation | |
-| README and DEVLOG writing | |
+| README and DEVLOG writing | 2hrs |
 | **Total** | |
