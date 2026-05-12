@@ -19,12 +19,12 @@ _Reviewed assignment requirements. The plan is to work on README document first,
 
 ---
 
-## Entry 2 – [Date]: [Short description]
+## Entry 2 – [05/12/2026]: [Trouble with Dijkstra logic]
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
 
-_Your entry here._
+_When writing the code for Part 2, I rushed through the Dijkstra algorithm logic, which I did not notice until I tried visualizing my code. Instead of calculating the closest distance from each node to all other nodes, I was only doing it for the source node, which gave me an incomplete distances list. By writing some pseudocode and re-reading Part 2 in the README, I was able to change the logic to properly implement the algorithm._
 
 ---
 
