@@ -34,8 +34,11 @@ def explain_problem():
 
     TODO
     """
-    return "TODO"
+    return"""Why a single shortest-path run from S is not enough: Calculating the shortest path from S would only give us the shortest distance from S. However, we also need the shortest distances when starting from other nodes.
 
+What decision remains after all inter-location costs are known: Once all inter-location costs are known, we need to determine the order in which to visit each relic chamber so that the total cost is minimized.
+
+Why this requires a search over orders (one sentence): Different orders will yield different total costs, which means a search over orders will allow us to find the minimum."""
 
 # =============================================================================
 # PART 2
@@ -56,7 +59,12 @@ def select_sources(spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    sources = [spawn]
+    for node in relics:
+        if node not in sources:
+            sources.append(node)
+
+    return sources
 
 
 def run_dijkstra(graph, source):
@@ -72,10 +80,26 @@ def run_dijkstra(graph, source):
     dict[node, float]
         Minimum cost from source to every node in graph.
         Unreachable nodes map to float('inf').
-
     TODO
     """
-    pass
+    #Initialize list to all infinite values
+    dist = {node: float('inf') for node in graph}
+    #Set source distance to itself to 0
+    dist[source] = 0
+    #Declare priority queue
+    pq = [(0,source)]
+    while pq:
+        curr_dist, curr_node = heapq.heappop(pq)
+        if curr_dist>dist[curr_node]: #Prune longer distances
+            continue 
+        for neighbor, cost in graph[curr_node]:
+            if neighbor not in dist: #Edge case: neighbor in edge but not in graph
+                dist[neighbor] = float('inf')
+            if (curr_dist+cost<dist[neighbor]): #Check if distance is shorter
+                dist[neighbor] = curr_dist+cost
+                heapq.heappush(pq, (dist[neighbor],neighbor))
+
+    return dist
 
 
 def precompute_distances(graph, spawn, relics, exit_node):
@@ -95,7 +119,15 @@ def precompute_distances(graph, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    dist_table = {}
+    #Calculate distances
+    dist_table [spawn] = run_dijkstra(graph, spawn)
+    for node in relics:
+        if node != spawn:
+            dist_table[node] = run_dijkstra(graph, node)
+    return dist_table
+
+
 
 
 # =============================================================================
@@ -112,8 +144,26 @@ def dijkstra_invariant_check():
 
     TODO
     """
-    return "TODO"
+    return """Part 3a: What the Invariant Means
+Two bullets: one for finalized nodes, one for non-finalized nodes. Do not copy the invariant text from the spec.
 
+For nodes already finalized (in S): The distance recorded is the shortest and it will not change.
+
+For nodes not yet finalized (not in S): The distance recorded is the shortest so far, but can possibly change.
+
+Part 3b: Why Each Phase Holds
+One to two bullets per phase. Maintenance must mention nonnegative edge weights.
+
+Initialization : why the invariant holds before iteration 1: Before the first iteration, the distance to the start node is 0 and the distance to all others is set to infinity. The start node has its correct shortest distance, and all other nodes have valid upper bounds
+
+Maintenance : why finalizing the min-dist node is always correct: Because all edge weights are nonnegative, the node with the smallest current distance cannot be reached by a shorter path through any unvisited node, which means the distance is correct when finalized.
+
+Termination : what the invariant guarantees when the algorithm ends: When the algorithm ends, all nodes have been finalized, so the shortest path to each node will have been calculated.
+
+Part 3c: Why This Matters for the Route Planner
+One sentence connecting correct distances to correct routing decisions.
+
+Having the correct shortest distances ensures that each routing decision is a step towards a globally optimal path."""
 
 # =============================================================================
 # PART 4
@@ -129,8 +179,24 @@ def explain_search():
 
     TODO
     """
-    return "TODO"
+    return """Why Greedy Fails
+State the failure mode. Then give a concrete counter-example using specific node names or costs (you may use the illustration example from the spec). Three to five bullets.
 
+The failure mode: Greedy fails when a locally optimal choice blocks a globally optimal solution.
+Counter-example setup: Assume we have two search algorithms, one optimal and one greedy, both of which are given the following table (with cheapest inter-location costs already calculated):.
+From → To	B	C	D	T
+S	1	2	2	--
+B	--	100	1	1
+C	1	--	100	100
+D	1	1	--	1
+What greedy picks: Greedy would select the cheapest path available that leads to a node that has not been visited yet. Therefore, it would take the following route: S->B->D->C->T, giving us a total cost of 1+1+1+100=103.
+What optimal picks: The optimal solution would be as follows: S->D->C->B->T, with a total cost of 2+1+1+1=5.
+Why greedy loses: When greedy selects the closest path, it may be stuck selecting a much more expensive path later down the line.
+What the Algorithm Must Explore
+One bullet. Must use the word "order."
+
+The algorithm must explore every possible order of relic chambers visited in order to minimize the total cost.
+"""
 
 # =============================================================================
 # PARTS 5 + 6
