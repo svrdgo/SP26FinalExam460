@@ -138,9 +138,9 @@ _Having the correct shortest distances ensures that each routing decision is a s
 
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
-| Current location | curr | Node | Current node being visited |
-| Relics already collected | relics | Integer bitmask | Bitmask with relic rooms visited|
-| Fuel cost so far | cost | Int | Total fuel cost for current run |
+| Current location | current_loc | Node | Current node being visited |
+| Relics already collected | relics | Set | Set with relic chambers visited|
+| Fuel cost so far | cost_so_far | Int | Total fuel cost for current run |
 
 ### Part 5b: Data Structure for Visited Relics
 
@@ -148,11 +148,11 @@ _Having the correct shortest distances ensures that each routing decision is a s
 
 | Property | Your answer |
 |---|---|
-| Data structure chosen | Integer bitmask |
+| Data structure chosen | Set|
 | Operation: check if relic already collected | Time complexity: O(1)|
 | Operation: mark a relic as collected | Time complexity: O(1)|
 | Operation: unmark a relic (backtrack) | Time complexity: O(1)|
-| Why this structure fits | Using a bitmask int allows for a fast operations while still using a compact data type|
+| Why this structure fits | Using a set makes relic tracking simple and easy to track, with quick operations|
 
 ### Part 5c: Worst-Case Search Space
 

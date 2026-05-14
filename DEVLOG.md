@@ -28,9 +28,9 @@ _When writing the code for Part 2, I rushed through the Dijkstra algorithm logic
 
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 3 – [05/13/2026]: [Finished parts 5+6]
 
-_Your entry here._
+_Finished implementations of the code and all tests have passed. When first writing the README, I had decided to use a bitmask to track the relics visited. However, I decided a set would be much simpler to implement and could still coomplete operations in constant time. One of the concerns was the unordered nature of sets, but that was not an issue since the solution order was being tracked as well._
 
 ---
 
@@ -53,8 +53,8 @@ _Your entry here._
 | Part 2: Precomputation Design | 1hr |
 | Part 3: Algorithm Correctness | .5hrs |
 | Part 4: Search Design | .5hrs |
-| Part 5: State and Search Space | |
-| Part 6: Pruning |  |
-| Part 7: Implementation | |
+| Part 5: State and Search Space | 1hr |
+| Part 6: Pruning | 1hr |
+| Part 7: Implementation | .5hrs|
 | README and DEVLOG writing | 2hrs |
-| **Total** | |
+| **Total** | 7hrs |

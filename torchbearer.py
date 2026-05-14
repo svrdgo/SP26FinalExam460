@@ -2,8 +2,8 @@
 CS 460 – Algorithms: Final Programming Assignment
 The Torchbearer
 
-Student Name: ___________________________
-Student ID:   ___________________________
+Student Name: Santiago Verdugo Carrillo
+Student ID:   828460068
 
 INSTRUCTIONS
 ------------
@@ -222,8 +222,15 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
 
     TODO
     """
-    pass
-
+    best = [float('inf'),[]] #Initialize best
+    _explore(dist_table=dist_table,
+             current_loc=spawn,
+             relics_remaining=set(relics),
+             relics_visited_order=[],
+             cost_so_far=0,
+             exit_node=exit_node,
+             best=best)
+    return (best[0],best[1])
 
 def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
              cost_so_far, exit_node, best):
@@ -254,8 +261,31 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     explaining why it is safe (cannot skip the optimal solution).
     This comment is graded.
     """
-    pass
-
+    #If exit node is last one left
+    if not relics_remaining:
+        total_cost = cost_so_far + dist_table[current_loc][exit_node]
+        if total_cost < best[0]:
+            best[0] = total_cost
+            best[1] = relics_visited_order.copy() #Update route order
+        return
+    #Prune
+    if (cost_so_far >= best[0]):
+        return
+    
+    for relic in relics_remaining:
+        new_remaining = relics_remaining - {relic}
+        new_cost = cost_so_far + dist_table[current_loc][relic]
+        if(new_cost>=best[0]): #All edges are nonnegative, so total cost can only increase as the route extends. Therefore, if the current cost is equal or higher to best cost, this route is safe to prune
+            continue
+        #Recursive step
+        _explore(
+            dist_table=dist_table,
+            current_loc=relic,
+            relics_remaining = new_remaining,
+            relics_visited_order=relics_visited_order + [relic],
+            cost_so_far=new_cost,
+            exit_node=exit_node,
+            best=best)
 
 # =============================================================================
 # PIPELINE
@@ -278,7 +308,8 @@ def solve(graph, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    dist_table = precompute_distances(graph,spawn,relics,exit_node)
+    return find_optimal_route(dist_table,spawn,relics,exit_node)
 
 
 # =============================================================================
