@@ -145,14 +145,11 @@ def dijkstra_invariant_check():
     TODO
     """
     return """Part 3a: What the Invariant Means
-Two bullets: one for finalized nodes, one for non-finalized nodes. Do not copy the invariant text from the spec.
-
 For nodes already finalized (in S): The distance recorded is the shortest and it will not change.
 
 For nodes not yet finalized (not in S): The distance recorded is the shortest so far, but can possibly change.
 
 Part 3b: Why Each Phase Holds
-One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 Initialization : why the invariant holds before iteration 1: Before the first iteration, the distance to the start node is 0 and the distance to all others is set to infinity. The start node has its correct shortest distance, and all other nodes have valid upper bounds
 
@@ -161,7 +158,6 @@ Maintenance : why finalizing the min-dist node is always correct: Because all ed
 Termination : what the invariant guarantees when the algorithm ends: When the algorithm ends, all nodes have been finalized, so the shortest path to each node will have been calculated.
 
 Part 3c: Why This Matters for the Route Planner
-One sentence connecting correct distances to correct routing decisions.
 
 Having the correct shortest distances ensures that each routing decision is a step towards a globally optimal path."""
 
@@ -180,7 +176,6 @@ def explain_search():
     TODO
     """
     return """Why Greedy Fails
-State the failure mode. Then give a concrete counter-example using specific node names or costs (you may use the illustration example from the spec). Three to five bullets.
 
 The failure mode: Greedy fails when a locally optimal choice blocks a globally optimal solution.
 Counter-example setup: Assume we have two search algorithms, one optimal and one greedy, both of which are given the following table (with cheapest inter-location costs already calculated):.
@@ -193,7 +188,6 @@ What greedy picks: Greedy would select the cheapest path available that leads to
 What optimal picks: The optimal solution would be as follows: S->D->C->B->T, with a total cost of 2+1+1+1=5.
 Why greedy loses: When greedy selects the closest path, it may be stuck selecting a much more expensive path later down the line.
 What the Algorithm Must Explore
-One bullet. Must use the word "order."
 
 The algorithm must explore every possible order of relic chambers visited in order to minimize the total cost.
 """

@@ -4,17 +4,9 @@
 **Student ID:** 828460068
 **Course:** CS 460 – Algorithms | Spring 2026
 
-> This README is your project documentation. Write it the way a developer would document
-> their design decisions , bullet points, brief justifications, and concrete examples where
-> required. You are not writing an essay. You are explaining what you built and why you built
-> it that way. Delete all blockquotes like this one before submitting.
-
 ---
 
 ## Part 1: Problem Analysis
-
-> Document why this problem is not just a shortest-path problem. Three bullet points, one
-> per question. Each bullet should be 1-2 sentences max.
 
 - **Why a single shortest-path run from S is not enough:**
   _Calculating the shortest path from S would only give us the shortest distance from S. However, we also need the shortest distances when starting from other nodes._
@@ -31,16 +23,12 @@
 
 ### Part 2a: Source Selection
 
-> List the source node types as a bullet list. For each, one-line reason.
-
 | Source Node Type | Why it is a source |
 |---|---|
 | _Start_ | _We need to compute the shortest path from Start to each relic chamber_ |
 | _Relic Chamber_ | _We need to compute distance between relics and distance to exit_ |
 
 ### Part 2b: Distance Storage
-
-> Fill in the table. No prose required.
 
 | Property | Your answer |
 |---|---|
@@ -52,8 +40,6 @@
 
 ### Part 2c: Precomputation Complexity
 
-> State the total complexity and show the arithmetic. Two to three lines max.
-
 - **Number of Dijkstra runs:** _k+1_
 - **Cost per run:** _O((|V|+|E|)log|V|)_
 - **Total complexity:** _O((k+1)(|V|+|E|)log|V|)_
@@ -63,13 +49,7 @@
 
 ## Part 3: Algorithm Correctness
 
-> Document your understanding of why Dijkstra produces correct distances.
-> Bullet points and short sentences throughout. No paragraphs.
-
 ### Part 3a: What the Invariant Means
-
-> Two bullets: one for finalized nodes, one for non-finalized nodes.
-> Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
   _The distance recorded is the shortest and it will not change._
@@ -78,8 +58,6 @@
   _The distance recorded is the shortest so far, but can possibly change._
 
 ### Part 3b: Why Each Phase Holds
-
-> One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
   _Before the first iteration, the distance to the start node is 0 and the distance to all others is set to infinity._
@@ -94,8 +72,6 @@
 
 ### Part 3c: Why This Matters for the Route Planner
 
-> One sentence connecting correct distances to correct routing decisions.
-
 _Having the correct shortest distances ensures that each routing decision is a step towards a globally optimal path._
 
 ---
@@ -103,9 +79,6 @@ _Having the correct shortest distances ensures that each routing decision is a s
 ## Part 4: Search Design
 
 ### Why Greedy Fails
-
-> State the failure mode. Then give a concrete counter-example using specific node names
-> or costs (you may use the illustration example from the spec). Three to five bullets.
 
 - **The failure mode:** _Greedy fails when a locally optimal choice blocks a globally optimal solution._
 - **Counter-example setup:** _Assume we have two search algorithms, one optimal and one greedy, both of which are given the following table (with cheapest inter-location costs already calculated):._
@@ -123,8 +96,6 @@ _Having the correct shortest distances ensures that each routing decision is a s
 
 ### What the Algorithm Must Explore
 
-> One bullet. Must use the word "order."
-
 - _The algorithm must explore every possible order of relic chambers visited in order to minimize the total cost._
 
 ---
@@ -133,9 +104,6 @@ _Having the correct shortest distances ensures that each routing decision is a s
 
 ### Part 5a: State Representation
 
-> Document the three components of your search state as a table.
-> Variable names here must match exactly what you use in torchbearer.py.
-
 | Component | Variable name in code | Data type | Description |
 |---|---|---|---|
 | Current location | current_loc | Node | Current node being visited |
@@ -143,8 +111,6 @@ _Having the correct shortest distances ensures that each routing decision is a s
 | Fuel cost so far | cost_so_far | Int | Total fuel cost for current run |
 
 ### Part 5b: Data Structure for Visited Relics
-
-> Fill in the table.
 
 | Property | Your answer |
 |---|---|
@@ -156,8 +122,6 @@ _Having the correct shortest distances ensures that each routing decision is a s
 
 ### Part 5c: Worst-Case Search Space
 
-> Two bullets.
-
 - **Worst-case number of orders considered:** _k!_
 - **Why:** _There are k relic chambers that can be visited in any order._
 
@@ -167,15 +131,11 @@ _Having the correct shortest distances ensures that each routing decision is a s
 
 ### Part 6a: Best-So-Far Tracking
 
-> Three bullets.
-
 - **What is tracked:** _Minimum cost among valid routes so far ._
 - **When it is used:** _When checking if current route has not exceeded the shortest route found so far._
 - **What it allows the algorithm to skip:** _Routes that already exceed the shortest route found so far._
 
 ### Part 6b: Lower Bound Estimation
-
-> Three bullets.
 
 - **What information is available at the current state:** _Relics visited so far, current location and cost so far._
 - **What the lower bound accounts for:** _The current cost plus the estimated minimum cost to visit the remaining relics and the exit_
@@ -183,16 +143,12 @@ _Having the correct shortest distances ensures that each routing decision is a s
 
 ### Part 6c: Pruning Correctness
 
-> One to two bullets. Explain why pruning is safe.
-
 - _Because we never overestimate the cost to continue the route, we only prune when we know for a fact that the current route will be sub-optimal._
 
 ---
 
 ## References
 
-> Bullet list. If none beyond lecture notes, write that.
-
-- _Your references here._
+- _Lecture slides only._
 
 

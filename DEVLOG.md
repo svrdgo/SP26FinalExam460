@@ -3,26 +3,15 @@
 **Student Name:** Santiago Verdugo Carrillo
 **Student ID:** 828460068
 
-> Instructions: Write at least four dated entries. Required entry types are marked below.
-> Two to five sentences per entry is sufficient. Write entries as you go, not all in one
-> sitting. Graders check that entries reflect genuine work across multiple sessions.
-> Delete all blockquotes before submitting.
-
 ---
 
 ## Entry 1 – [05/11/2026]: Initial Plan
-
-> Required. Write this before writing any code. Describe your plan: what you will
-> implement first, what parts you expect to be difficult, and how you plan to test.
 
 _Reviewed assignment requirements. The plan is to work on README document first, in order to have a strategy in place before writing any code. I believe the implementation of the code may be more difficult than the analysis, since the problem implies the solution for it may be somewhat complex. Once the solution is implemented, I plan to start testing by using simple inputs, and then moving on to edge cases to ensure those are properly handled. ._
 
 ---
 
 ## Entry 2 – [05/12/2026]: [Trouble with Dijkstra logic]
-
-> Required. At least one entry must describe a bug, wrong assumption, or design change
-> you encountered. Describe what went wrong and how you resolved it.
 
 _When writing the code for Part 2, I rushed through the Dijkstra algorithm logic, which I did not notice until I tried visualizing my code. Instead of calculating the closest distance from each node to all other nodes, I was only doing it for the source node, which gave me an incomplete distances list. By writing some pseudocode and re-reading Part 2 in the README, I was able to change the logic to properly implement the algorithm._
 
@@ -44,8 +33,6 @@ _Your entry here._
 ---
 
 ## Final Entry – [Date]: Time Estimate
-
-> Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
 | Part | Estimated Hours |
 |---|---|
