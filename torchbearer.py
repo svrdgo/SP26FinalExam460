@@ -268,6 +268,7 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     
     for relic in relics_remaining:
         new_remaining = relics_remaining - {relic}
+        #Calculate cost if we visited this relic next
         new_cost = cost_so_far + dist_table[current_loc][relic]
         if(new_cost>=best[0]): #All edges are nonnegative, so total cost can only increase as the route extends. Therefore, if the current cost is equal or higher to best cost, this route is safe to prune
             continue
