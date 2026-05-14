@@ -23,16 +23,13 @@ _Finished implementations of the code and all tests have passed. When first writ
 
 ---
 
-## Entry 4 – [Date]: Post-Implementation Reflection
+## Entry 4 – [05/14/2026]: Post-Implementation Reflection
 
-> Required. Written after your implementation is complete. Describe what you would
-> change or improve given more time.
-
-_Your entry here._
+_Given more time, I probably would've experimented further with using a bitmask for relic tracking. It would take up less storage than a set and would be more efficient. I would also probably look for ways to make the explore helper function more efficient._
 
 ---
 
-## Final Entry – [Date]: Time Estimate
+## Final Entry – [05/14/2026]: Time Estimate
 
 | Part | Estimated Hours |
 |---|---|
